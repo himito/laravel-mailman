@@ -1,0 +1,47 @@
+{
+    "name": "himito/laravel-mailman",
+    "description": "Laravel API for Mailman 3",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Jaime Arias",
+            "email": "arias@lipn.univ-paris13.fr",
+            "homepage": "https://www.jaime-arias.fr"
+        }
+    ],
+    "homepage": "https://github.com/himito/laravel-mailman",
+    "keywords": [
+        "Laravel",
+        "Mailman"
+    ],
+    "require": {
+        "illuminate/support": "~5",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~7.0",
+        "mockery/mockery": "^1.1",
+        "orchestra/testbench": "~3.0",
+        "sempro/phpunit-pretty-print": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "himito\\mailman\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "himito\\mailman\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "himito\\mailman\\MailmanServiceProvider"
+            ],
+            "aliases": {
+                "Mailman": "himito\\mailman\\Facades\\Mailman"
+            }
+        }
+    }
+}
