@@ -5,7 +5,7 @@
 [![Build Status][ico-travis]][link-travis]
 [![StyleCI][ico-styleci]][link-styleci]
 
-This is where your description should go. Take a look at [contributing.md](contributing.md) to see a to do list.
+Laravel API for Mailman 3.
 
 ## Installation
 
@@ -19,7 +19,7 @@ $ composer require himito/laravel-mailman
 
 ## Change log
 
-Please see the [changelog](changelog.md) for more information on what has changed recently.
+Please see the [changelog file](CHANGELOG.md) for more information on what has changed recently.
 
 ## Testing
 
@@ -29,7 +29,7 @@ $ composer test
 
 ## Contributing
 
-Please see [contributing.md](contributing.md) for details and a todolist.
+Please see [contributing file](CONTRIBUTING.md) for details and a todo-list.
 
 ## Security
 
@@ -37,12 +37,12 @@ If you discover any security related issues, please email author email instead o
 
 ## Credits
 
-- [author name][link-author]
+- [Jaime Arias][link-author]
 - [All Contributors][link-contributors]
 
 ## License
 
-license. Please see the [license file](license.md) for more information.
+Please see the [license file](LICENSE) for more information.
 
 [ico-version]: https://img.shields.io/packagist/v/himito/laravel-mailman.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/himito/laravel-mailman.svg?style=flat-square
