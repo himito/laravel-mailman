@@ -13,9 +13,25 @@ Via Composer
 
 ``` bash
 $ composer require himito/laravel-mailman
+$ php artisan vendor:publish --tag mailman.config
+```
+
+## Configuration
+
+```
+MAILMAN_HOST=localhost
+MAILMAN_PORT=8001
+MAILMAN_USERNAME=
+MAILMAN_PASSWORD=
 ```
 
 ## Usage
+
+### Get all the mailing lists
+
+```php
+$lists = Mailman::lists();
+```
 
 ## Change log
 
