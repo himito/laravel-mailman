@@ -47,11 +47,11 @@ Please see the [license file](LICENSE) for more information.
 [ico-version]: https://img.shields.io/packagist/v/himito/laravel-mailman.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/himito/laravel-mailman.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/himito/laravel-mailman/master.svg?style=flat-square
-[ico-styleci]: https://styleci.io/repos/12345678/shield
+[ico-styleci]: https://styleci.io/repos/176921198/shield
 
 [link-packagist]: https://packagist.org/packages/himito/laravel-mailman
 [link-downloads]: https://packagist.org/packages/himito/laravel-mailman
 [link-travis]: https://travis-ci.org/himito/laravel-mailman
-[link-styleci]: https://styleci.io/repos/12345678
+[link-styleci]: https://styleci.io/repos/176921198
 [link-author]: https://github.com/himito
 [link-contributors]: ../../contributors
