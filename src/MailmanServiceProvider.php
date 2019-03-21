@@ -26,7 +26,7 @@ class MailmanServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/mailman.php', 'mailman');
+        $this->mergeConfigFrom(__DIR__.'/../config/mailman.php', 'mailman');
 
         // Register the service the package provides.
         $this->app->singleton('mailman', function ($app) {
@@ -53,7 +53,7 @@ class MailmanServiceProvider extends ServiceProvider
     {
         // Publishing the configuration file.
         $this->publishes([
-            __DIR__ . '/../config/mailman.php' => config_path('mailman.php'),
+            __DIR__.'/../config/mailman.php' => config_path('mailman.php'),
         ], 'mailman.config');
     }
 }
