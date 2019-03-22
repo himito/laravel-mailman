@@ -12,18 +12,11 @@ class Mailman implements MailmanInterface
      *
      * @var GuzzleHttp\Client
      */
-    protected $client;
+    private $client;
 
-    public function __construct($options)
+    public function __construct(Client $client)
     {
-        ['host' => $host, 'port' => $port, 'api_version' => $api_version, 'admin_user' => $admin_user, 'admin_pass' => $admin_pas] = $options;
-
-        $clientOptions = [
-            'base_uri' => "{$host}:{$port}/{$api_version}/",
-            'auth' => [$admin_user, $admin_pas],
-        ];
-
-        $this->client = new Client($clientOptions);
+        $this->client = $client;
     }
 
     /**

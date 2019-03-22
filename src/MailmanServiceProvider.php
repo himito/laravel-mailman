@@ -3,6 +3,7 @@
 namespace himito\mailman;
 
 use Illuminate\Support\ServiceProvider;
+use GuzzleHttp\Client;
 
 class MailmanServiceProvider extends ServiceProvider
 {
@@ -30,7 +31,13 @@ class MailmanServiceProvider extends ServiceProvider
 
         // Register the service the package provides.
         $this->app->singleton('mailman', function ($app) {
-            return new Mailman(config('mailman'));
+            $config = config('mailman');
+
+            $base_uri = "{$config['host']}:{$config['port']}/{$config['api']}/";
+            $auth = [$config['admin_user'], $config['admin_pass']];
+
+            $client = new Client(compact('base_uri', 'auth'));
+            return new Mailman($client);
         });
     }
 
