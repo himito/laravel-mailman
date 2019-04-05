@@ -2,14 +2,14 @@
 
 namespace himito\mailman\Tests;
 
-use Orchestra\Testbench\TestCase as OrchestraTestCase;
-use himito\mailman\Facades\Mailman as MailmanFacade;
 use himito\mailman\MailmanServiceProvider;
+use himito\mailman\Facades\Mailman as MailmanFacade;
+use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
 class TestCase extends OrchestraTestCase
 {
     /**
-     * Load package service provider
+     * Load package service provider.
      *
      * @param \Illuminate\Foundation\Application $app
      * @return himito\mailman\MailmanServiceProvider

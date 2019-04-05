@@ -3,10 +3,10 @@
 namespace himito\mailman\Tests;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Handler\MockHandler;
-use GuzzleHttp\Psr7\Response;
-use GuzzleHttp\HandlerStack;
 use himito\mailman\Mailman;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Psr7\Response;
+use GuzzleHttp\Handler\MockHandler;
 
 class MailmanFunctionTest extends TestCase
 {
@@ -84,7 +84,7 @@ class MailmanFunctionTest extends TestCase
         $handler = HandlerStack::create($mock);
 
         $client = new Client([
-            'handler'=>$handler, 'base_uri' => 'http://mock.mailman.org']);
+            'handler'=>$handler, 'base_uri' => 'http://mock.mailman.org', ]);
 
         return new Mailman($client);
     }
