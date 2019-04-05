@@ -1,0 +1,18 @@
+{
+    "start": 0,
+    "total_size": 1,
+    "entries": [
+        {
+            "display_name": "Test",
+            "fqdn_listname": "test@lists.example.com",
+            "list_id": "test.lists.example.com",
+            "list_name": "test",
+            "mail_host": "lists.example.com",
+            "member_count": 0,
+            "volume": 1,
+            "self_link": "http://172.18.0.3:8001/3.0/lists/test.lists.example.com",
+            "http_etag": "\"3d84e1c11ff54c56f826202e90980b497c8133d8\""
+        }
+    ],
+    "http_etag": "\"ba9ddf782966e45195525b4d6db51bc59ae2d198\""
+}

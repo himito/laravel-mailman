@@ -1,0 +1,19 @@
+{
+    "start": 0,
+    "total_size": 1,
+    "entries": [
+        {
+            "address": "http://172.18.0.3:8001/3.0/addresses/test@test.com",
+            "delivery_mode": "regular",
+            "email": "test@test.com",
+            "list_id": "test.lists.example.com",
+            "member_id": 3.08579659483781712889948735244578627267e+38,
+            "role": "member",
+            "self_link": "http://172.18.0.3:8001/3.0/members/308579659483781712889948735244578627267",
+            "display_name": "",
+            "user": "http://172.18.0.3:8001/3.0/users/282961276128426523829363396880141765071",
+            "http_etag": "\"9b6b9a43475999473c7f43751dd928a2f8360dff\""
+        }
+    ],
+    "http_etag": "\"d58d26b3265159fc7c7572f3e10cc4a8c6b382a2\""
+}

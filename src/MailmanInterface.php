@@ -39,7 +39,7 @@ interface MailmanInterface
     /**
      * Removes a mailing list.
      *
-     * @param sting $name name of the mailing list
+     * @param sting $name email of the mailing list
      * @return bool
      */
     public function remove_list($name);
