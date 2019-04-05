@@ -2,8 +2,8 @@
 
 namespace himito\mailman;
 
-use Illuminate\Support\ServiceProvider;
 use GuzzleHttp\Client;
+use Illuminate\Support\ServiceProvider;
 
 class MailmanServiceProvider extends ServiceProvider
 {
@@ -37,6 +37,7 @@ class MailmanServiceProvider extends ServiceProvider
             $auth = [$config['admin_user'], $config['admin_pass']];
 
             $client = new Client(compact('base_uri', 'auth'));
+
             return new Mailman($client);
         });
     }
