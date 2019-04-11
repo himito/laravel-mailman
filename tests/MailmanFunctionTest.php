@@ -70,7 +70,7 @@ class MailmanFunctionTest extends TestCase
     {
         $lists = file_get_contents(__DIR__.'/Mocks/Lists/test-list-body.txt');
         $body = file_get_contents(__DIR__.'/Mocks/Members/memberships-body.txt');
-        $mailman = $this->get_mailman([[200, $lists],[200, $body], [201, '']]);
+        $mailman = $this->get_mailman([[200, $lists], [200, $body], [201, '']]);
         $response = $mailman->unsubscribe('test@lists.example.com', 'test@test.com');
         $this->assertTrue($response);
     }
