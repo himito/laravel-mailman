@@ -159,10 +159,10 @@ class Mailman implements MailmanInterface
     public function unsubscribe($list_name, $user_email)
     {
         $response = null;
-        $members = $this->membership($user_email);
         $list = $this->get_list_by_name($list_name);
 
         if ($list) {
+            $members = $this->membership($user_email);
             $key = array_search(
                 $list->list_id,
                 array_column($members, 'list_id')
