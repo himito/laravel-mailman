@@ -42,7 +42,7 @@ class MailmanFunctionTest extends TestCase
     public function it_allows_to_remove_a_list()
     {
         $mailman = $this->get_mailman([[201, '']]);
-        $response = $mailman->remove_list('test.lists.example.com');
+        $response = $mailman->remove_list('test@lists.example.com');
         $this->assertTrue($response);
     }
 
@@ -52,24 +52,26 @@ class MailmanFunctionTest extends TestCase
         $body = file_get_contents(__DIR__.'/Mocks/Members/empty-body.txt');
         $mailman = $this->get_mailman([[200, $body]]);
 
-        $lists = $mailman->members('test.lists.example.com');
+        $lists = $mailman->members('test@lists.example.com');
         $this->assertEmpty($lists);
     }
 
     /** @test */
     public function it_allows_to_subscribe_a_user()
     {
-        $mailman = $this->get_mailman([[201, '']]);
-        $response = $mailman->subscribe('test.lists.example.com', 'Test', 'test@test.com');
+        $body = file_get_contents(__DIR__.'/Mocks/Lists/test-list-body.txt');
+        $mailman = $this->get_mailman([[200, $body], [201, '']]);
+        $response = $mailman->subscribe('test@lists.example.com', 'Test', 'test@test.com');
         $this->assertTrue($response);
     }
 
     /** @test */
     public function it_allows_to_unsubscribe_a_user()
     {
+        $lists = file_get_contents(__DIR__.'/Mocks/Lists/test-list-body.txt');
         $body = file_get_contents(__DIR__.'/Mocks/Members/memberships-body.txt');
-        $mailman = $this->get_mailman([[200, $body], [201, '']]);
-        $response = $mailman->unsubscribe('test.lists.example.com', 'test@test.com');
+        $mailman = $this->get_mailman([[200, $lists],[200, $body], [201, '']]);
+        $response = $mailman->unsubscribe('test@lists.example.com', 'test@test.com');
         $this->assertTrue($response);
     }
 
