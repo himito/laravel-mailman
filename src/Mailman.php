@@ -65,7 +65,7 @@ class Mailman implements MailmanInterface
     }
 
     /**
-     * Find a list by its name
+     * Find a list by its name.
      *
      * @param string $name
      * @return array|null
@@ -78,8 +78,6 @@ class Mailman implements MailmanInterface
         if ($index !== false) {
             return $lists[$index];
         }
-
-        return null;
     }
 
     public function membership($user)
