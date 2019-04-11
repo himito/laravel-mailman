@@ -64,6 +64,24 @@ class Mailman implements MailmanInterface
         return ! is_null($response);
     }
 
+    /**
+     * Find a list by its name
+     *
+     * @param string $name
+     * @return array|null
+     */
+    protected function get_list_by_name($name)
+    {
+        $lists = $this->lists();
+        $index = array_search($name, array_column($lists, 'fqdn_listname'));
+
+        if ($index !== false) {
+            return $lists[$index];
+        }
+
+        return null;
+    }
+
     public function membership($user)
     {
         $response = $this->send_request('GET', "addresses/{$user}/memberships");
@@ -71,13 +89,18 @@ class Mailman implements MailmanInterface
         return $this->get_entries($response);
     }
 
-    public function members($list_id)
+    public function members($list_name)
     {
-        $response = $this->send_request(
-            'GET',
-            'members/find',
-            ['list_id' => $list_id]
-        );
+        $response = null;
+        $list = $this->get_list_by_name($list_name);
+
+        if ($list) {
+            $response = $this->send_request(
+                'GET',
+                'members/find',
+                ['list_id' => $list->list_id]
+            );
+        }
 
         return $this->get_entries($response);
     }
@@ -114,33 +137,41 @@ class Mailman implements MailmanInterface
         return $this->get_status($response);
     }
 
-    public function subscribe($list_id, $user_name, $user_email)
+    public function subscribe($list_name, $user_name, $user_email)
     {
-        $response = $this->send_request(
-            'POST',
-            'members',
-            [
-                'list_id' => $list_id,
-                'display_name' => $user_name,
-                'subscriber' => $user_email,
-                'pre_verified' => true,
-                'pre_confirmed' => true,
-                'pre_approved' => true,
-            ]
-        );
+        $response = null;
+        $list = $this->get_list_by_name($list_name);
+
+        if ($list) {
+            $response = $this->send_request('POST', 'members', [
+                    'list_id' => $list->list_id,
+                    'display_name' => $user_name,
+                    'subscriber' => $user_email,
+                    'pre_verified' => true,
+                    'pre_confirmed' => true,
+                    'pre_approved' => true,
+                ]);
+        }
 
         return $this->get_status($response);
     }
 
-    public function unsubscribe($list_id, $user_email)
+    public function unsubscribe($list_name, $user_email)
     {
-        $members = $this->membership($user_email);
-        $key = array_search($list_id, array_column($members, 'list_id'));
         $response = null;
+        $members = $this->membership($user_email);
+        $list = $this->get_list_by_name($list_name);
 
-        if ($key !== false) {
-            $member_id = $members[$key]->member_id;
-            $response = $this->send_request('DELETE', "members/{$member_id}");
+        if ($list) {
+            $key = array_search(
+                $list->list_id,
+                array_column($members, 'list_id')
+            );
+
+            if ($key !== false) {
+                $member_id = $members[$key]->member_id;
+                $response = $this->send_request('DELETE', "members/{$member_id}");
+            }
         }
 
         return $this->get_status($response);
