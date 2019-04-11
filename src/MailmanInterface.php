@@ -7,10 +7,10 @@ interface MailmanInterface
     /**
      * List the members of a list.
      *
-     * @param string $list_id id of the list
+     * @param string $list_name email of the list
      * @return array
      */
-    public function members($list_id);
+    public function members($list_name);
 
     /**
      *  List all the mailing lists.
@@ -47,21 +47,21 @@ interface MailmanInterface
     /**
      * Subscribes a user to a list.
      *
-     * @param string $list_id id of the list
+     * @param string $list_name email of the list
      * @param string $user_name full name of the user
      * @param string $user_email email of the user
      * @return bool
      */
-    public function subscribe($list_id, $user_name, $user_email);
+    public function subscribe($list_name, $user_name, $user_email);
 
     /**
      * Unsubscribes a user from a list.
      *
-     * @param string $list_id id of the list
+     * @param string $list_name email of the list
      * @param string $user_email email of the user
      * @return bool
      */
-    public function unsubscribe($list_id, $user_email);
+    public function unsubscribe($list_name, $user_email);
 
     /**
      * Returns all the lists where the member is member.
