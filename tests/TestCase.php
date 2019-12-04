@@ -2,8 +2,8 @@
 
 namespace himito\mailman\Tests;
 
-use himito\mailman\MailmanServiceProvider;
 use himito\mailman\Facades\Mailman as MailmanFacade;
+use himito\mailman\MailmanServiceProvider;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
 class TestCase extends OrchestraTestCase

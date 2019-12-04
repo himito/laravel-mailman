@@ -3,10 +3,10 @@
 namespace himito\mailman\Tests;
 
 use GuzzleHttp\Client;
-use himito\mailman\Mailman;
+use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
-use GuzzleHttp\Handler\MockHandler;
+use himito\mailman\Mailman;
 
 class MailmanFunctionTest extends TestCase
 {
