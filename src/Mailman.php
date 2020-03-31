@@ -142,13 +142,13 @@ class Mailman implements MailmanInterface
 
         if ($list) {
             $response = $this->send_request('POST', 'members', [
-                    'list_id' => $list->list_id,
-                    'display_name' => $user_name,
-                    'subscriber' => $user_email,
-                    'pre_verified' => true,
-                    'pre_confirmed' => true,
-                    'pre_approved' => true,
-                ]);
+                'list_id' => $list->list_id,
+                'display_name' => $user_name,
+                'subscriber' => $user_email,
+                'pre_verified' => true,
+                'pre_confirmed' => true,
+                'pre_approved' => true,
+            ]);
         }
 
         return $this->get_status($response);
