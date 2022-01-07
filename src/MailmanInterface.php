@@ -7,7 +7,7 @@ interface MailmanInterface
     /**
      * List the members of a list.
      *
-     * @param string $list_name email of the list
+     * @param  string  $list_name  email of the list
      * @return array
      */
     public function members($list_name);
@@ -22,7 +22,7 @@ interface MailmanInterface
     /**
      * Creates a new mailing list.
      *
-     * @param string $name email of the mailing list
+     * @param  string  $name  email of the mailing list
      * @return bool
      */
     public function create_list($name);
@@ -30,8 +30,8 @@ interface MailmanInterface
     /**
      * Updates the options of a list.
      *
-     * @param string $list email of the list
-     * @param array $options array with the new values
+     * @param  string  $list  email of the list
+     * @param  array  $options  array with the new values
      * @return bool
      */
     public function update_list($list, $options);
@@ -39,7 +39,7 @@ interface MailmanInterface
     /**
      * Removes a mailing list.
      *
-     * @param sting $name email of the mailing list
+     * @param  sting  $name  email of the mailing list
      * @return bool
      */
     public function remove_list($name);
@@ -47,9 +47,9 @@ interface MailmanInterface
     /**
      * Subscribes a user to a list.
      *
-     * @param string $list_name email of the list
-     * @param string $user_name full name of the user
-     * @param string $user_email email of the user
+     * @param  string  $list_name  email of the list
+     * @param  string  $user_name  full name of the user
+     * @param  string  $user_email  email of the user
      * @return bool
      */
     public function subscribe($list_name, $user_name, $user_email);
@@ -57,8 +57,8 @@ interface MailmanInterface
     /**
      * Unsubscribes a user from a list.
      *
-     * @param string $list_name email of the list
-     * @param string $user_email email of the user
+     * @param  string  $list_name  email of the list
+     * @param  string  $user_email  email of the user
      * @return bool
      */
     public function unsubscribe($list_name, $user_email);
@@ -66,7 +66,7 @@ interface MailmanInterface
     /**
      * Returns all the lists where the member is member.
      *
-     * @param string $user email of the user
+     * @param  string  $user  email of the user
      * @return array
      */
     public function membership($user);

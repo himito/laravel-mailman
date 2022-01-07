@@ -22,9 +22,9 @@ class Mailman implements MailmanInterface
     /**
      * Send an HTTP request.
      *
-     * @param string $method HTTP method
-     * @param string $endpoint API endpoint
-     * @param array $body request's parameters
+     * @param  string  $method  HTTP method
+     * @param  string  $endpoint  API endpoint
+     * @param  array  $body  request's parameters
      * @return string
      */
     protected function send_request($method, $endpoint, $body = [])
@@ -42,7 +42,7 @@ class Mailman implements MailmanInterface
     /**
      * Get the entries of a response.
      *
-     * @param string $response request's response
+     * @param  string  $response  request's response
      * @return array
      */
     protected function get_entries($response)
@@ -56,7 +56,7 @@ class Mailman implements MailmanInterface
     /**
      * Returns if a request was successful or not.
      *
-     * @param string|null $response request's response
+     * @param  string|null  $response  request's response
      * @return bool
      */
     protected function get_status($response)
@@ -67,7 +67,7 @@ class Mailman implements MailmanInterface
     /**
      * Find a list by its name.
      *
-     * @param string $name
+     * @param  string  $name
      * @return array|null
      */
     protected function get_list_by_name($name)
