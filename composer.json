@@ -2,7 +2,7 @@
     "name": "himito/laravel-mailman",
     "description": "Laravel API for Mailman 3",
     "version": "1.2.0",
-    "license": "GPL-3.0",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "Jaime Arias",
