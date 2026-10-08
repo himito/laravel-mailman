@@ -33,7 +33,9 @@ class MailmanServiceProvider extends ServiceProvider
         $this->app->singleton('mailman', function ($app) {
             $config = config('mailman');
 
-            $base_uri = "{$config['host']}:{$config['port']}/{$config['api']}/";
+            $host = preg_match('#^https?://#i', $config['host']) ? $config['host'] : "http://{$config['host']}";
+
+            $base_uri = "{$host}:{$config['port']}/{$config['api']}/";
             $auth = [$config['admin_user'], $config['admin_pass']];
 
             $client = new Client(compact('base_uri', 'auth'));
