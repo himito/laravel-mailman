@@ -86,7 +86,7 @@ class MailmanFunctionTest extends TestCase
         $handler = HandlerStack::create($mock);
 
         $client = new Client([
-            'handler'=>$handler, 'base_uri' => 'http://mock.mailman.org', ]);
+            'handler' => $handler, 'base_uri' => 'http://mock.mailman.org', ]);
 
         return new Mailman($client);
     }
